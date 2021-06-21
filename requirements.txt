@@ -1,0 +1,6 @@
+Django==3.2.4
+joblib==1.0.1
+numpy==1.19.5
+scikit-learn
+sklearn
+

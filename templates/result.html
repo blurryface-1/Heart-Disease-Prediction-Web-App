@@ -1,0 +1,191 @@
+{% block content %}
+<html>
+
+<head>
+    <title>HDP Result Page</title>
+    <link
+      rel="icon"
+      href="https://i.ibb.co/7WTBrQ9/kisspng-heart-computer-icons-clip-art-5afac5a8e1d416-434932121526384040925.png"
+      type="image/png"
+    />
+</head>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+            Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background-image: url("https://i.ibb.co/XFXPPDp/abc.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .heading-container {
+        text-align: center;
+    }
+
+    .heading {
+        font-weight: 600;
+    }
+
+
+    .credit {
+        margin: 10px 0px;
+        color: #888888;
+        font-size: 25px;
+        transition: all 0.5s;
+    }
+
+    .credit a {
+        color: inherit;
+    }
+
+    a,
+    .card__exit,
+    .card__icon {
+        position: relative;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    a::after {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        content: "";
+        width: 0%;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.6);
+        transition: all 0.5s;
+    }
+
+    a:hover::after {
+        width: 100%;
+    }
+
+    .main-container {
+        padding: 30px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        margin: 20px;
+        padding: 20px;
+        width: 500px;
+        min-height: 200px;
+        display: grid;
+        grid-template-rows: 20px 50px 1fr 50px;
+        border-radius: 10px;
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+        transition: all 0.5s;
+    }
+
+    .card:hover {
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+        transform: scale(1.01);
+    }
+
+    .card__exit {
+        grid-row: 1/2;
+        justify-self: end;
+    }
+
+    .card__title1 {
+        grid-row: 3/4;
+        font-weight: 400;
+        color: #053b08;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .card__title2 {
+        grid-row: 3/4;
+        font-weight: 400;
+        color: rgb(37, 3, 12);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+
+    .card-1 {
+        background: radial-gradient(#5ee26585, #47cc5d86);
+    }
+
+    .card-2 {
+        background: radial-gradient(#e23151b2, #d41737a6);
+    }
+
+    @media (max-width: 1600px) {
+        .card-container {
+            justify-content: center;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="main-container">
+        <div class="heading-container">
+            <h1 class="heading">Heart Disease Prediction</h1>
+            <p class="credit"><a>Predicted Results</a></p>
+        </div>
+        <div class="card-container">
+            {% if result1 == '0' %}
+            <div class="card card-1">
+                <h3 style="color: rgb(3, 46, 16)">K-Nearest Neighbours</h3>
+                <h2 class="card__title1 ">No heart disease detected.</h2>
+            </div>
+            {% else %}
+            <div class="card card-2">
+                <h3 style="color: rgb(37, 3, 12)">K-Nearest Neighbours</h3>
+                <h2 class="card__title2">Heart disease detected.</h2>
+            </div>
+            {% endif %}
+            {% if result2 == '0' %}
+            <div class="card card-1">
+                <h3 style="color: rgb(3, 46, 16)">Support Vector Machine</h3>
+                <h2 class="card__title1 ">No heart disease detected.</h2>
+            </div>
+            {% else %}
+            <div class="card card-2">
+                <h3 style="color: rgb(37, 3, 12)">Support Vector Machine</h3>
+                <h2 class="card__title2">Heart disease detected.</h2>
+            </div>
+            {% endif %}
+            {% if result3 == '0' %}
+            <div class="card card-1">
+                <h3 style="color: rgb(3, 46, 16)">Logistic Regression</h3>
+                <h2 class="card__title1 ">No heart disease detected.</h2>
+            </div>
+            {% else %}
+            <div class="card card-2">
+                <h3 style="color: rgb(37, 3, 12)">Logistic Regression</h3>
+                <h2 class="card__title2">Heart disease detected.</h2>
+            </div>
+            {% endif %}
+            {% if result4 == '0' %}
+            <div class="card card-1">
+                <h3 style="color: rgb(3, 46, 16)">Random Forest Classifier</h3>
+                <h2 class="card__title1 ">No heart disease detected.</h2>
+            </div>
+            {% else %}
+            <div class="card card-2">
+                <h3 style="color: rgb(37, 3, 12)">Random Forest Classifier</h3>
+                <h2 class="card__title2">Heart disease detected.</h2>
+            </div>
+            {% endif %}
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
+{% endblock content %}

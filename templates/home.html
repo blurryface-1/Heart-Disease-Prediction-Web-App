@@ -1,0 +1,209 @@
+{% block content %}
+
+<html>
+
+<head>
+    <title>
+        HDP Home Page
+    </title>
+    <link
+      rel="icon"
+      href="https://i.ibb.co/7WTBrQ9/kisspng-heart-computer-icons-clip-art-5afac5a8e1d416-434932121526384040925.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    body {
+        margin: auto;
+        background-image: url("https://i.ibb.co/XFXPPDp/abc.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    form h1 {
+        font-size: 18px;
+        background: #073a2dd0 none repeat scroll 0% 0%;
+        color: rgb(255, 255, 255);
+        padding: 22px 25px;
+        border-radius: 5px 5px 0px 0px;
+        margin: auto;
+        text-shadow: none;
+        text-align: left;
+    }
+
+    form {
+        border-radius: 5px;
+        max-width: 700px;
+        width: 100%;
+        margin: 2% auto;
+        background-color: #71b6a5a9;
+        overflow: hidden;
+    }
+
+    p span {
+        color: #f00;
+    }
+
+    p {
+        margin: 0px;
+        font-weight: 200;
+        line-height: 2;
+        color: rgb(36, 34, 34);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+        padding: auto;
+        text-align: center;
+        color: rgb(49, 47, 47);
+        text-shadow: 2px 2px 0px rgba(246, 242, 242, 0.884);
+        margin: 40px 0px 0px 0px;
+    }
+
+    input {
+        border-radius: 5px 5px 5px 5px;
+        border: 1px solid rgb(235, 226, 226);
+        margin-bottom: 15px;
+        width: 95%;
+        height: 40px;
+        float: left;
+        padding: 0px 15px;
+        border-style: ridge;
+        color: rgb(36, 35, 34);
+    }
+
+    a {
+        text-decoration: inherit;
+    }
+
+    .form-group {
+        overflow: hidden;
+        clear: both;
+    }
+
+    i {
+        color: #555;
+    }
+
+    .contentform {
+        padding: 40px 30px;
+    }
+
+    .button-contact {
+        background-color: #094944d8;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        border: 0;
+        padding: 17px 25px;
+        border-radius: 0px 0px 5px 5px;
+        cursor: pointer;
+        margin-top: 40px;
+        font-size: 18px;
+        text-shadow: 2px 2px 0px rgba(41, 38, 38, 0.685);
+    }
+
+    .leftcontact {
+        width: 49.5%;
+        float: left;
+        border-right: 1px dotted #ccc;
+        box-sizing: border-box;
+        padding: 0px 15px 0px 0px;
+    }
+
+    .rightcontact {
+        width: 49.5%;
+        float: right;
+        box-sizing: border-box;
+        padding: 0px 0px 0px 15px;
+    }
+
+    .validation {
+        display: none;
+        margin: 0 0 10px;
+        font-weight: 400;
+        font-size: 13px;
+        color: #de5959;
+    }
+
+    #sendmessage.show,
+    .show {
+        display: block;
+    }
+</style>
+
+<body>
+    <h1>Heart Disease Prediction</h1>
+
+    <form action="result" method="post">
+        <h1>Fill Your Details:</h1>
+        {% csrf_token %}
+        <div class="contentform">
+            <div class="leftcontact">
+                <div class="form-group">
+                    <p>Age<span>*</span></p>
+                    <input type="number" name="age" required />
+                </div>
+                <div class="form-group">
+                    <p>Sex<span>*</span></p>
+                    <input type="number" name="sex" required />
+                </div>
+                <div class="form-group">
+                    <p>Chest Pain<span>*</span></p>
+                    <input type="number" name="cp" required />
+                </div>
+                <div class="form-group">
+                    <p>Resting Blood Pressure (mm Hg)<span>*</span></p>
+                    <input type="number" name="trestbps" required />
+                </div>
+                <div class="form-group">
+                    <p>Cholestrol (mg/dl)<span>*</span></p>
+                    <input type="number" name="chol" required />
+                </div>
+                <div class="form-group">
+                    <p>Fasting Blood Sugar<span>*</span></p>
+                    <input type="number" name="fbs" required />
+                </div>
+                <div class="form-group">
+                    <p>Resting ECG<span>*</span></p>
+                    <input type="number" name="restecg" required />
+                </div>
+            </div>
+            <div class="rightcontact">
+                <div class="form-group">
+                    <p>Maximum heart rate<span>*</span></p>
+                    <input type="number" name="thalach" required />
+                </div>
+                <div class="form-group">
+                    <p>Exercise induced angina<span>*</span></p>
+                    <input type="number" name="exang" required />
+                </div>
+                <div class="form-group">
+                    <p>ST depression<span>*</span></p>
+                    <input type="number" step="any" name="oldpeak" required />
+                </div>
+                <div class="form-group">
+                    <p>Slope of ST segment<span>*</span></p>
+
+                    <input type="number" name="slope" required />
+                </div>
+                <div class="form-group">
+                    <p>Number of blood vessels<span>*</span></p>
+
+                    <input type="number" name="ca" required />
+                </div>
+                <div class="form-group">
+                    <p>Thal<span>*</span></p>
+                    <input type="number" name="thal" required />
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="button-contact">Get Predictions</button>
+    </form>
+</body>
+
+</html>
+{% endblock content %}
